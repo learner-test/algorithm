@@ -7,11 +7,23 @@
     <title>Document</title>
 </head>
 <body>
+    被乘数：<input type="number" id="num1">*
+    乘数：<input type="number" id="num2">=
+    直接相乘/算法相乘:<input type="number" disabled id="norResult">/<input type="number" disabled id="result">
+    <button id="calculation">计算</button>
     <script src="./index.js"></script>
     <script>
-        let a = new LIMultiplication(-123456, 654321)
-        console.log(a.normalMul())
-        console.log(a.lIMul())
+        let a = new LIMultiplication()
+        var num1 = document.getElementById('num1')
+        var num2 = document.getElementById('num2')
+        var norResult = document.getElementById('norResult')
+        var result = document.getElementById('result')
+        var cal = document.getElementById('calculation')
+        document.getElementById('calculation').onclick = function() {
+            a.setNum(num1.value, num2.value)
+            norResult.value = a.normalMul()
+            result.value = a.lIMul()
+        }
     </script>
 </body>
 </html>

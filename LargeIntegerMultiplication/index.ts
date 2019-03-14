@@ -2,10 +2,19 @@ class LIMultiplication {
     num1: number;
     num2: number;
     isPositive: boolean;
-    constructor(num1: number, num2: number) {
+    constructor(num1?: number, num2?: number) {
         this.num1 = num1
         this.num2 = num2
-        this.isPositive = true
+    }
+    setNum(num1: number, num2: number) {
+        this.num1 = num1
+        this.num2 = num2
+    }
+    setNum1(num: number) {
+        this.num1 = num
+    }
+    setNum2(num: number) {
+        this.num2 = num
     }
     normalMul(): number {
         return this.num1 * this.num2

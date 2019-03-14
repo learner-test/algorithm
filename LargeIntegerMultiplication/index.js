@@ -2,8 +2,17 @@ var LIMultiplication = /** @class */ (function () {
     function LIMultiplication(num1, num2) {
         this.num1 = num1;
         this.num2 = num2;
-        this.isPositive = true;
     }
+    LIMultiplication.prototype.setNum = function (num1, num2) {
+        this.num1 = num1;
+        this.num2 = num2;
+    };
+    LIMultiplication.prototype.setNum1 = function (num) {
+        this.num1 = num;
+    };
+    LIMultiplication.prototype.setNum2 = function (num) {
+        this.num2 = num;
+    };
     LIMultiplication.prototype.normalMul = function () {
         return this.num1 * this.num2;
     };
