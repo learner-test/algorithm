@@ -2,7 +2,7 @@ class LIMultiplication {
     num1: number;
     num2: number;
     isPositive: boolean;
-    constructor(num1?: number, num2?: number) {
+    constructor(num1 = 0, num2 = 0) {
         this.num1 = num1
         this.num2 = num2
     }
