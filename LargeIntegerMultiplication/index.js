@@ -1,5 +1,7 @@
 var LIMultiplication = /** @class */ (function () {
     function LIMultiplication(num1, num2) {
+        if (num1 === void 0) { num1 = 0; }
+        if (num2 === void 0) { num2 = 0; }
         this.num1 = num1;
         this.num2 = num2;
     }
