@@ -5,23 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        table {
+            display: inline-block;
+            border-collapse:collapse;
+            text-align: center;
+            margin: 10px;
+        }
+        #create {
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
-    行数：<input type="number" id="row">列数：<input type="number" id="col"><button id="create">生成</button><br>
+    一矩阵行数：<input type="number" id="row1">一矩阵列数、二矩阵行数：<input type="number" id="col1">二矩阵列数：<input type="number" id="col2"><button id="create">生成</button><button id="calculation">计算</button><br>
     <div>
-        <table id="table1">
-            
-        </table>        
+        <table id="table1" border="1"></table>
+        <table id="table2" border="1"></table>    
+        <table id="table3" border="1"></table>
+        <table id="table4" border="1"></table>    
     </div>
 
-
+    <script src="index.js"></script>
     <script>
         let create = document.getElementById('create')
-        let row = document.getElementById('row')
-        let col = document.getElementById('col')
+        let calculation = document.getElementById('calculation')
+        let row1 = document.getElementById('row1')
+        let col1 = document.getElementById('col1')
+        let col2 = document.getElementById('col2')
         let table1 = document.getElementById('table1')
+        let table2 = document.getElementById('table2')
+        let table3 = document.getElementById('table3')
+        let table4 = document.getElementById('table4')
+        var a = new Strassen()
         create.onclick = function() {
-            
+            a.setStrassen(row1.value, col1.value, col2.value)
+            let strassen1 = a.strassen1
+            let strassen2 = a.strassen2
+            createTable(strassen1, table1)
+            createTable(strassen2, table2)
+        }
+        calculation.onclick = function() {
+            if(a.strassen1 && a.strassen2) {
+                var arr = a.norCalculation()
+                console.log(arr)
+                createTable(arr, table3)
+            } else {
+                alert('请先生成矩阵')
+            }
+        }
+        function createTable(arr, dom) {
+            let str = ''
+            for(let i = 0; i < arr.length; i++) {
+                str += '<tr>'
+                for(let j = 0; j < arr[i].length; j++) {
+                    str += '<td>' + arr[i][j] + '</td>'
+                }
+                str += '</tr>'
+            }
+            dom.innerHTML = str
         }
     </script>
 </body>
